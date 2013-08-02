@@ -1,0 +1,8 @@
+doctype html
+= render partial: 'layouts/head'
+body class="#{controller_name} #{action_name}"
+  #layout_wrapper
+    = yield
+
+/ At the bottom because tigons
+= requirejs_include_tag "application"

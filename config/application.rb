@@ -2,9 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+# Implement the Bundler Group Pattern:
+# See: https://gist.github.com/pboling/4564780
+require File.expand_path('../application.bundler', __FILE__)
 
 module RequireRailsExample
   class Application < Rails::Application

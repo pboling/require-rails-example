@@ -1,0 +1,110 @@
+#TODO: Cleanup this file & put in a logical order
+waitSeconds: 5
+
+paths:
+  app: 'app'
+  vent: 'vent'
+  utils: 'utils'
+  application: 'application'
+
+  domReady: 'domReady'
+
+  ba-debug: 'ba-debug'
+
+# We are not yet using front end Kiss Metrics integration
+#  kiss_metrics: 'services/kiss_metrics'
+
+  # foundation's jquery 1.9.1 is inside a vendor directory
+  # But we are going to attempt to link to a CDN jquery instead
+  # jquery: 'vendor/jquery'
+  jquery: "//code.jquery.com/jquery-1.9.1.min"
+  # NOTE: All modules needing jquery must require the jquery-adapter
+  'jquery-adapter': 'jquery-adapter'
+  # jQuery UJS comes from the jquery-rails gem
+  jquery_ujs: 'jquery_ujs'
+  'jquery-environment': 'jquery-plugins/jquery-environment'
+
+  underscore: 'underscore'
+  backbone: 'backbone'
+  marionette: 'backbone.marionette'
+  # handlebars.runtime is for when you also need to compile templates in-browser, and not just pre-compile them
+  handlebars: 'handlebars'
+
+  # NOTE: All modules needing foundation must require the foundation-adapter
+  'foundation-adapter': 'foundation-adapter'
+  foundation: 'foundation/foundation'
+
+  # The foundation libraries
+  "alerts": 'foundation/foundation.alerts'
+  "clearing": 'foundation/foundation.clearing'
+  "cookie": 'foundation/foundation.cookie'
+  "dropdown": 'foundation/foundation.dropdown'
+  "forms": 'foundation/foundation.forms'
+  "joyride": 'foundation/foundation.joyride'
+  "magellan": 'foundation/foundation.magellan'
+  "orbit": 'foundation/foundation.orbit'
+  "placeholder": 'foundation/foundation.placeholder'
+  "reveal": 'foundation/foundation.reveal'
+  "section": 'foundation/foundation.section'
+  "tooltips": 'foundation/foundation.tooltips'
+  "topbar": 'foundation/foundation.topbar'
+  # foundation's modernizr is inside a vendor directory
+  "modernizr": 'vendor/custom.modernizr'
+
+# DO NOT CREATE SHIMS for AMD MODULES
+shim:
+
+  'jquery-adapter':
+    exports: 'jquery'
+    deps: ['ba-debug', 'jquery', 'jquery_ujs']
+
+  jquery:
+    exports: 'jquery'
+  jquery_ujs:
+    deps: ['jquery']
+
+  underscore:
+    exports: '_'
+
+  backbone:
+    exports: 'Backbone'
+    deps: ['jquery', 'underscore']
+
+  handlebars:
+    exports: 'Handlebars'
+
+  'foundation-adapter':
+    exports: 'jquery'
+    deps: ['domReady', 'jquery', 'foundation']
+
+  'foundation':
+    deps: ['jquery']
+  'alerts':
+    deps: ['jquery','foundation']
+  'clearing':
+    deps: ['jquery']
+  'cookie':
+    deps: ['jquery']
+  'dropdown':
+    deps: ['jquery']
+  'forms':
+    deps: ['jquery']
+  'joyride':
+    deps: ['jquery']
+  'magellan':
+    deps: ['jquery']
+  'orbit':
+    deps: ['jquery']
+  'placeholder':
+    deps: ['jquery']
+  'reveal':
+    deps: ['jquery']
+  'section':
+    deps: ['jquery','foundation']
+  'tooltips':
+    deps: ['jquery']
+  'topbar':
+    deps: ['jquery']
+
+  priority: ['ba-debug', 'domReady', 'jquery-adapter', 'foundation-adapter', 'app']
+

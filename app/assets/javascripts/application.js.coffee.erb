@@ -1,0 +1,33 @@
+# The application starts here.  Literally.
+require [
+  'ba-debug',
+
+  # Libraries
+  'domReady','jquery-adapter', 'underscore', 'backbone', 'marionette', 'handlebars',
+
+  'app',
+  'application_controller',
+  'application_router',
+  'views/layout',
+  'foundation-adapter',
+], (console, domReady, $, _, Backbone, Marionette, Handlebars, App, ApplicationController, ApplicationRouter, AppLayout) ->
+
+  domReady ->
+    console.log('Loaded application.js')
+    window.App = App if $.environment.config('env_name') == 'development'
+
+    App.addInitializer ->
+      @applicationController = new ApplicationController()
+      @router = new ApplicationRouter(controller:@applicationController)
+
+    App.on 'initialize:after', ->
+      # Setup the Layout
+      @layout = new AppLayout()
+      # Render the layout
+      console.log 'Rendering Layout'
+      @layout.render()
+
+      console.log 'Starting Backbone.history with push'
+      Backbone.history.start({pushState: true})
+
+    App.start()

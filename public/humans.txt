@@ -1,0 +1,15 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Architect: |7eter l-|. l3oling
+  Site: http://railsbling.com
+  Twitter: @galtzo
+  From: Wappingers Falls, New York, USA
+
+/* SITE */
+  Doctype:HTML5
+  Standards: HTML5, CSS3
+  Components: ZURB Foundation, Require.js, jQuery, Backbone, Marionette, Handlebars, Slim, SASS, CoffeeScript
+  Software: Ruby on Rails version 4, Unicorn
+  IDE: RubyMine, iTerm2

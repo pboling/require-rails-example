@@ -1,3 +1,20 @@
+GIT
+  remote: git://github.com/acquaintable/handlebars_assets.git
+  revision: 3c3873497708120f59cc5bdb465db0f84ea3d6d5
+  specs:
+    handlebars_assets (0.14.1)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt
+
+GIT
+  remote: git://github.com/skinnyfit/requirejs-rails.git
+  revision: bd0bbb6046f924cfdf26ef9bfac913d9b9ae346d
+  branch: fix_sprockets_check
+  specs:
+    requirejs-rails (0.9.1)
+      railties (>= 3.1.1, < 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +45,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.10)
     builder (3.1.4)
+    chunky_png (1.2.8)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -35,9 +53,30 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
+    dotenv (0.6.0)
+    dotenv-rails (0.6.0)
+      dotenv (= 0.6.0)
+    em-proxy (0.1.8)
+      eventmachine
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    ffi (1.9.0)
+    foreman (0.62.0)
+      thor (>= 0.13.6)
+    fssm (0.2.10)
+    heroku-forward (0.4.0)
+      em-proxy (>= 0.1.8)
+      ffi
+      i18n (~> 0.6)
+      spoon (~> 0.0.1)
     hike (1.2.3)
     i18n (0.6.4)
     jbuilder (1.5.0)
@@ -47,6 +86,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    kgio (2.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -54,6 +94,8 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.7)
     polyglot (0.3.3)
+    puma (2.4.0)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -70,9 +112,11 @@ GEM
       activesupport (= 4.0.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.11.0)
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -81,6 +125,16 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    slim (2.0.1)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (2.0.1)
+      actionpack (>= 3.0, < 4.1)
+      activesupport (>= 3.0, < 4.1)
+      railties (>= 3.0, < 4.1)
+      slim (~> 2.0)
+    spoon (0.0.4)
+      ffi
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -91,6 +145,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.7)
+    temple (0.6.6)
     thor (0.18.1)
     thread_safe (0.1.2)
       atomic
@@ -101,20 +156,35 @@ GEM
     turbolinks (1.3.0)
       coffee-rails
     tzinfo (0.3.37)
-    uglifier (2.1.2)
-      execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+    unicorn (4.6.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
+    zurb-foundation (4.3.1)
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  compass-rails
+  dotenv-rails (~> 0.6.0)
+  foreman
+  handlebars_assets!
+  heroku-forward
   jbuilder (~> 1.2)
   jquery-rails
+  puma
   rails (= 4.0.0)
+  redcarpet (>= 2.2.2)
+  requirejs-rails!
   sass-rails (~> 4.0.0)
   sdoc
+  slim (>= 1.3.7)
+  slim-rails (>= 1.1.1)
   sqlite3
+  tilt (>= 1.3.6)
   turbolinks
-  uglifier (>= 1.3.0)
+  unicorn
+  zurb-foundation

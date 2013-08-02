@@ -1,0 +1,57 @@
+define(['ba-debug', 'jquery', 'jquery_ujs', 'jquery-environment'], function(console, $){
+
+  console.log('jquery-adapter: guid is', $.guid);
+
+  <% if Rails.env == 'production' %>
+    <% if ENV['FOGGY'] == 'true' %>
+    // When *foggy* we are actually precompiling assets in dev for testing as if we were in prod...
+    $.environment({
+      env_name:'development',
+      hostname: 'localhost:5000',
+      foggy: true
+    });
+    <% else %>
+    // Otherwise we are production
+    $.environment({
+      env_name:'production',
+      hostname: 'something.heroku.com'
+    });
+    <% end %>
+  <% elsif Rails.env == 'development' %>
+  $.environment({
+    env_name:'development',
+    hostname: 'localhost:5000',
+    foggy: false
+  });
+  <% elsif Rails.env == 'testing' %>
+  $.environment({
+    env_name:'test',
+    hostname: 'localhost:5000'
+  });
+  <% end %>
+
+  console.log('[jquery-environment] env_name', $.environment.config('env_name'));
+  console.log('[jquery-environment] hostname', $.environment.config('hostname'));
+
+  // jQuery plugin to prevent double submission of forms
+  $.fn.preventDoubleSubmission = function(callback) {
+    $(this).bind('submit',function(e){
+      var $form = $(this);
+
+      if ($form.data('submitted') === true) {
+        // Previously submitted - don't submit again
+        e.preventDefault();
+      } else {
+        // Mark it so that the next submit can be ignored
+        $form.data('submitted', true);
+        callback(e);
+        return true;
+      }
+    });
+
+    // Keep chainability
+    return this;
+  };
+
+  return $;
+});
