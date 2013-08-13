@@ -42,7 +42,7 @@ group :javascript do
   # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
   gem 'jbuilder', '~> 1.2'
   # Enable the AMD design pattern for Javascript modules and integrate into the Asset Pipeline ========>
-  gem 'requirejs-rails', github: 'skinnyfit/requirejs-rails', branch: 'fix_sprockets_check'
+  gem 'requirejs-rails', github: 'acquaintable/requirejs-rails' #path: '/Users/pboling//Documents/src/acq/requirejs-rails' #
   # moved out of assets group due to config/initializers/handlebars_assets.rb
   gem 'handlebars_assets', github: 'acquaintable/handlebars_assets' #, ref: '5b22bf80f20eb606595bbeb848ba42ba050ee0be' # '~> 0.12.0' #
   # Use Uglifier as compressor for JavaScript assets
