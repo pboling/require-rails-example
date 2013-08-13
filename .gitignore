@@ -17,3 +17,6 @@
 
 # Ignore test
 /test
+
+# Public Assets
+/public/assets
