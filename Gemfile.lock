@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/acquaintable/handlebars_assets.git
+  remote: https://github.com/acquaintable/handlebars_assets.git
   revision: 3c3873497708120f59cc5bdb465db0f84ea3d6d5
   specs:
     handlebars_assets (0.14.1)
@@ -8,7 +8,7 @@ GIT
       tilt
 
 GIT
-  remote: git://github.com/acquaintable/requirejs-rails.git
+  remote: https://github.com/acquaintable/requirejs-rails.git
   revision: 17f494949d9128c23270edd3d9027f6fce4ac53c
   specs:
     requirejs-rails (0.9.1.1)
@@ -58,6 +58,7 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    concurrent-ruby (1.1.9)
     dotenv (0.6.0)
     dotenv-rails (0.6.0)
       dotenv (= 0.6.0)
@@ -77,7 +78,8 @@ GEM
       i18n (~> 0.6)
       spoon (~> 0.0.1)
     hike (1.2.3)
-    i18n (0.6.4)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jbuilder (1.5.0)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
